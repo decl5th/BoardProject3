@@ -3,6 +3,7 @@
     min-width: 1100px;
     max-width: 1300px;
     margin: 0 auto;
+    padding: 0 10px;
 }
 
 .content-box {
@@ -91,8 +92,8 @@ header .search-box button i {
     font-size: 1.5rem;
 }
 
-header .logo {
-    size: 50px;
+header .logo > img {
+    height: 100px;
 }
 
 nav {
@@ -115,12 +116,7 @@ nav > .inner a:hover {
     background: #313131;
 }
 
-.logo > img {
-  position: relative;
-  width: 10%;
-  top: 12%;
-  left: 7%;
-}
+
 
 /* 사이트 헤더 영역 D */
 
