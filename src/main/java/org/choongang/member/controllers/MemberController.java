@@ -1,6 +1,7 @@
 package org.choongang.member.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.choongang.global.config.annotations.Controller;
 import org.choongang.global.config.annotations.GetMapping;
@@ -58,5 +59,12 @@ public class MemberController {
 
         return "commons/execute_script";
         // html 페이지가 렌더링되어야지만 스크립트가 실행됨 스크립트 태그가 있어야 스크립트를 실행해줌
+    }
+
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate(); // 세션 비우기: 로그 아웃
+
+        return "redirect:/member/login"; // 페이지 이동 response.sendRedirect(...)
     }
 }
