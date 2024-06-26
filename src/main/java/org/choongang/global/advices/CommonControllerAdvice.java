@@ -32,7 +32,7 @@ public class CommonControllerAdvice {
 
             StringBuffer sb = new StringBuffer(1000);
             if (e instanceof AlertException alertException) {
-                sb.append(String.format("alert('%s);", e.getMessage()));
+                sb.append(String.format("alert('%s');", e.getMessage()));
             }
 
             if (e instanceof AlertBackException alertBackException) {

@@ -32,6 +32,8 @@ public class ExceptionHandlerService {
         if (e instanceof InvocationTargetException invocationTargetException) {
             e = invocationTargetException.getTargetException();
         }
+        System.out.println(e);
+        System.out.println("유입!");
 
         Class clazz = e.getClass();
 
