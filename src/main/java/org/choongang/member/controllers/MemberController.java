@@ -1,5 +1,6 @@
 package org.choongang.member.controllers;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.choongang.global.config.annotations.Controller;
 import org.choongang.global.config.annotations.GetMapping;
@@ -22,12 +23,16 @@ public class MemberController {
 
     // 회원 가입 처리
     @PostMapping("/join")
-    public String joinPs(RequestJoin form) {
+    public String joinPs(RequestJoin form, HttpServletRequest request) {
 
         joinService.process(form);
 
-        System.out.println(form); // 값 넘어오는지 확인
-        return "member/join";
+        String url = request.getContextPath() + "/member/login";
+        String script = String.format("parent.location.replace('%s');", url); // 부모쪽 창 이동하기 위함
+
+        request.setAttribute("script", script);
+
+        return "commons/execute_script"; // 스크립트 형태로 로그인 페이지 이동
     }
 
     //로그인 양식
