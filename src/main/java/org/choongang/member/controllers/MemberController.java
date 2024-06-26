@@ -18,6 +18,7 @@ public class MemberController {
     // 회원 가입 양식
     @GetMapping("/join")
     public String join( ) {
+
         return "member/join";
     }
 
